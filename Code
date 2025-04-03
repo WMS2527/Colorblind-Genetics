@@ -1,0 +1,191 @@
+// This program should display effects to accurately represent the transfer of a colorblindness gene.
+// It should have: Functions, A Punnett Square, Genotype Results, and Phenotype Results
+// Genotype is genetic aspects, Phenotype is physical aspects.
+#include <iostream>
+
+using namespace std;
+
+// The function below asks for the user to input of of three listed integers.
+// The integer entered will be run through the function punnett_square.
+female_properties(double& fGenetics)
+{
+    bool fInvalidInput = true;
+
+    while (fInvalidInput == true)
+    {
+
+    cout << "Is the mother: (1) Colorblind, (2) A Carrier, or (3) Neither?\n\n";
+    cin >> fGenetics;
+    cout << endl;
+
+    if (fGenetics == 1)
+        {cout << "Colorblind\n" << endl;
+        fInvalidInput == false;
+        break;
+        }
+
+    else if (fGenetics == 2)
+        {cout << "Carrier\n" << endl;
+        fInvalidInput == false;
+        break;
+        }
+
+    else if (fGenetics == 3)
+        {cout << "Normal\n" << endl;
+        fInvalidInput == false;
+        break;
+        }
+
+    else
+        {cout << "Invalid Input\nPlease use one of the displayed values\n\n\n";
+        fInvalidInput == true;
+        }
+
+    if (fInvalidInput == false)
+        {cout << "Input Accepted\n\n\n";
+        }
+    }
+}
+// End of function.
+
+// The function below asks for the user to input one of two listed integers.
+// The integer entered will be run through the function punnett_square.
+male_properties(double& mGenetics)
+{
+    bool mInvalidInput = true;
+
+    while (mInvalidInput == true)
+    {
+
+    cout << "Is the father: (1) Colorblind, or (2) Not Colorblind?\n\n";
+    cin >> mGenetics;
+    cout << endl;
+
+    if (mGenetics == 1)
+        {cout << "Colorblind\n" << endl;
+        mInvalidInput == false;
+        break;
+        }
+
+    else if (mGenetics == 2)
+        {cout << "Normal\n" << endl;
+        mInvalidInput == false;
+        break;
+        }
+
+    else
+        {cout << "Invalid Input\nPlease use one of the displayed values\n\n\n";
+        }
+
+    if (mInvalidInput == false)
+        {cout << "Input Accepted\n\n";
+        }
+    }
+}
+// End of function.
+
+punnett_square(double& fGenetics, double& mGenetics) //Function to create a Punnett Square using the entered data
+{
+// Males have XY, Females have XX. Males cannot be carriers for colorblindness.
+// Only X Chromosomes can have a C/c attached to them.
+// c = Colorblindness. C = Carrier.
+
+    string punnett1; // Top-Left of Punnett Square
+    string punnett2; // Top-Right of Punnett Square
+    string punnett3; // Bottom-Left of Punnett Square
+    string punnett4; // Bottom-Right of Punnett Square
+
+    // The following ifs are for choosing what to print where depending on the values entered.
+    if (fGenetics == 1 && mGenetics == 1) //Both are colorblind
+    {
+        punnett1 = "XcXc";
+        punnett2 = "XcY";
+        punnett3 = "XcXc";
+        punnett4 = "XcY";
+    }
+
+    if (fGenetics == 1 && mGenetics == 2) // Mother is colorblind, father is not colorblind
+    {
+        punnett1 = "XcX";
+        punnett2 = "XcY";
+        punnett3 = "XcXc";
+        punnett4 = "XcY";
+    }
+
+    if (fGenetics == 2 && mGenetics == 1) // Mother is a carrier of colorblindness, father is colorblind
+    {
+        punnett1 = "XCXc";
+        punnett2 = "XCY";
+        punnett3 = "XCXc";
+        punnett4 = "XCY";
+    }
+
+    if (fGenetics == 2 && mGenetics == 2) // Mother is a carrier of colorblindness, father is not colorblind
+    {
+        punnett1 = "XCX";
+        punnett2 = "XCY";
+        punnett3 = "XCX";
+        punnett4 = "XCY";
+    }
+
+    if (fGenetics == 3 && mGenetics == 1) // Mother is not colorblind, father is colorblind
+    {
+        punnett1 = "XXc";
+        punnett2 = "XY";
+        punnett3 = "XXc";
+        punnett4 = "XY";
+    }
+
+    if (fGenetics == 3 && mGenetics == 2) // Both are not colorblind
+    {
+        punnett1 = "XX";
+        punnett2 = "XY";
+        punnett3 = "XX";
+        punnett4 = "XY";
+    }
+
+    // Left column: Female
+    // Right Column: Male
+    cout << "------------------------------------\n";
+    cout << "|                |                 |\n";
+    cout << "|                |                 |\n";
+    cout << "       " << punnett1 << "              " << punnett2 << "\n";
+    cout << "|                |                 |\n";
+    cout << "|                |                 |\n";
+    cout << "|----------------------------------|\n";
+    cout << "|                |                 |\n";
+    cout << "|                |                 |\n";
+    cout << "       " << punnett3 << "              " << punnett4 << "\n";
+    cout << "|                |                 |\n";
+    cout << "|                |                 |\n";
+    cout << "------------------------------------\n";
+
+
+}
+// End of function.
+
+int main()
+
+{
+//Males have XY, Females have XX. Males cannot be carriers for colorblindness.
+//c = Colorblindness. C = Carrier.
+cout << "To use this program, simply enter the following data:\n\n";
+cout << "Colorblind gene status of the mother\n";
+cout << "Colorblind gene status of the father\n\n";
+cout << "After entering this data, a Punnet Square will be generated" << endl
+<< "to show the possible genetic status of those parent's children.\n\n\n";
+
+double fGenetics;
+double mGenetics;
+bool fInputCheck;
+bool mInputCheck;
+string punnett1;
+string punnett2;
+string punnett3;
+string punnett4;
+
+female_properties(fGenetics);
+male_properties(mGenetics);
+punnett_square(fGenetics, mGenetics);
+
+}
