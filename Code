@@ -7,7 +7,41 @@ using namespace std;
 
 // The function below asks for the user to input of of three listed integers.
 // The integer entered will be run through the function punnett_square.
-female_properties(double& fGenetics)
+female_properties(double& fGenetics);
+
+// The function below asks for the user to input one of two listed integers.
+// The integer entered will be run through the function punnett_square.
+male_properties(double& mGenetics);
+
+
+punnett_square(double& fGenetics, double& mGenetics); //Function to create a Punnett Square using the entered data
+
+
+int main()
+
+{
+cout << "To use this program, simply enter the following data:\n\n";
+cout << "Colorblind gene status of the mother\n";
+cout << "Colorblind gene status of the father\n\n";
+cout << "After entering this data, a Punnet Square will be generated" << endl
+<< "to show the possible genetic status of those parent's children.\n\n\n";
+
+double fGenetics;
+double mGenetics;
+bool fInputCheck;
+bool mInputCheck;
+string punnett1;
+string punnett2;
+string punnett3;
+string punnett4;
+
+female_properties(fGenetics);
+male_properties(mGenetics);
+punnett_square(fGenetics, mGenetics);
+
+}
+
+female_properties()
 {
     bool fInvalidInput = true;
 
@@ -46,11 +80,8 @@ female_properties(double& fGenetics)
         }
     }
 }
-// End of function.
 
-// The function below asks for the user to input one of two listed integers.
-// The integer entered will be run through the function punnett_square.
-male_properties(double& mGenetics)
+male_properties()
 {
     bool mInvalidInput = true;
 
@@ -84,7 +115,7 @@ male_properties(double& mGenetics)
 }
 // End of function.
 
-punnett_square(double& fGenetics, double& mGenetics) //Function to create a Punnett Square using the entered data
+punnett_square()
 {
 // Males have XY, Females have XX. Males cannot be carriers for colorblindness.
 // Only X Chromosomes can have a C/c attached to them.
@@ -163,29 +194,3 @@ punnett_square(double& fGenetics, double& mGenetics) //Function to create a Punn
 
 }
 // End of function.
-
-int main()
-
-{
-//Males have XY, Females have XX. Males cannot be carriers for colorblindness.
-//c = Colorblindness. C = Carrier.
-cout << "To use this program, simply enter the following data:\n\n";
-cout << "Colorblind gene status of the mother\n";
-cout << "Colorblind gene status of the father\n\n";
-cout << "After entering this data, a Punnet Square will be generated" << endl
-<< "to show the possible genetic status of those parent's children.\n\n\n";
-
-double fGenetics;
-double mGenetics;
-bool fInputCheck;
-bool mInputCheck;
-string punnett1;
-string punnett2;
-string punnett3;
-string punnett4;
-
-female_properties(fGenetics);
-male_properties(mGenetics);
-punnett_square(fGenetics, mGenetics);
-
-}
