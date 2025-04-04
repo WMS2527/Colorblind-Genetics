@@ -201,9 +201,6 @@ void punnett_square(double& fGenetics, double& mGenetics)
     cout << "|                |                 |\n";
     cout << "------------------------------------\n\n";
     cout << pheno;
-// End of function.
-
-}
 
 }
 // End of function.
