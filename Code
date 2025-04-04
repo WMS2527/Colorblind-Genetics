@@ -29,6 +29,7 @@ string punnett1;
 string punnett2;
 string punnett3;
 string punnett4;
+string pheno;
 
 female_properties(fGenetics);
 male_properties(mGenetics);
@@ -127,6 +128,7 @@ void punnett_square(double& fGenetics, double& mGenetics)
     string punnett2; // Top-Right of Punnett Square
     string punnett3; // Bottom-Left of Punnett Square
     string punnett4; // Bottom-Right of Punnett Square
+    string pheno; // Phenotype Results
 
     // The following ifs are for choosing what to print where depending on the values entered.
     if (fGenetics == 1 && mGenetics == 1) //Both are colorblind
@@ -135,6 +137,7 @@ void punnett_square(double& fGenetics, double& mGenetics)
         punnett2 = "XcY";
         punnett3 = "XcXc";
         punnett4 = "XcY";
+        pheno = "50% Colorblind Girl\n50% Colorblind Boy";
     }
 
     if (fGenetics == 1 && mGenetics == 2) // Mother is colorblind, father is not colorblind
@@ -143,6 +146,7 @@ void punnett_square(double& fGenetics, double& mGenetics)
         punnett2 = "XcY";
         punnett3 = "XcXc";
         punnett4 = "XcY";
+        pheno = "25% Carrier Girl\n25% Colorblind Girl\n50% Colorblind Boy";
     }
 
     if (fGenetics == 2 && mGenetics == 1) // Mother is a carrier of colorblindness, father is colorblind
@@ -151,6 +155,7 @@ void punnett_square(double& fGenetics, double& mGenetics)
         punnett2 = "XCY";
         punnett3 = "XCXc";
         punnett4 = "XCY";
+        pheno = "50% Carrier Girl\n50% Colorblind Boy";
     }
 
     if (fGenetics == 2 && mGenetics == 2) // Mother is a carrier of colorblindness, father is not colorblind
@@ -159,6 +164,7 @@ void punnett_square(double& fGenetics, double& mGenetics)
         punnett2 = "XCY";
         punnett3 = "XCX";
         punnett4 = "XCY";
+        pheno = "50% Carrier Girl\n50% Colorblind Boy";
     }
 
     if (fGenetics == 3 && mGenetics == 1) // Mother is not colorblind, father is colorblind
@@ -167,6 +173,7 @@ void punnett_square(double& fGenetics, double& mGenetics)
         punnett2 = "XY";
         punnett3 = "XXc";
         punnett4 = "XY";
+        pheno = "50% Normal Girl\n50% Carrier Girl\n Normal Boy";
     }
 
     if (fGenetics == 3 && mGenetics == 2) // Both are not colorblind
@@ -175,6 +182,7 @@ void punnett_square(double& fGenetics, double& mGenetics)
         punnett2 = "XY";
         punnett3 = "XX";
         punnett4 = "XY";
+        pheno = "50% Normal Girl\n50% Normal Boy";
     }
 
     // Left column: Female
@@ -191,8 +199,11 @@ void punnett_square(double& fGenetics, double& mGenetics)
     cout << "       " << punnett3 << "              " << punnett4 << "\n";
     cout << "|                |                 |\n";
     cout << "|                |                 |\n";
-    cout << "------------------------------------\n";
+    cout << "------------------------------------\n\n";
+    cout << pheno;
 // End of function.
+
+}
 
 }
 // End of function.
