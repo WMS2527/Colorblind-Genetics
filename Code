@@ -5,14 +5,9 @@
 
 using namespace std;
 
-// The function below asks for the user to input of of three listed integers.
-// The integer entered will be run through the function punnett_square.
 female_properties(double& fGenetics);
 
-// The function below asks for the user to input one of two listed integers.
-// The integer entered will be run through the function punnett_square.
 male_properties(double& mGenetics);
-
 
 punnett_square(double& fGenetics, double& mGenetics); //Function to create a Punnett Square using the entered data
 
@@ -41,7 +36,9 @@ punnett_square(fGenetics, mGenetics);
 
 }
 
-female_properties()
+// The function below asks for the user to input of of three listed integers.
+// The integer entered will be run through the function punnett_square.
+female_properties(double& fGenetics)
 {
     bool fInvalidInput = true;
 
@@ -80,8 +77,11 @@ female_properties()
         }
     }
 }
+// End of function.
 
-male_properties()
+// The function below asks for the user to input one of two listed integers.
+// The integer entered will be run through the function punnett_square.
+male_properties(double& mGenetics)
 {
     bool mInvalidInput = true;
 
@@ -115,7 +115,9 @@ male_properties()
 }
 // End of function.
 
-punnett_square()
+// The function below takes the two inputs, checks what values were entered for them,
+// and prints the corresponding genetic string in the corresponding part of a Punnett Square.
+punnett_square(double& fGenetics, double& mGenetics)
 {
 // Males have XY, Females have XX. Males cannot be carriers for colorblindness.
 // Only X Chromosomes can have a C/c attached to them.
@@ -190,7 +192,7 @@ punnett_square()
     cout << "|                |                 |\n";
     cout << "|                |                 |\n";
     cout << "------------------------------------\n";
-
+// End of function.
 
 }
 // End of function.
